@@ -16,7 +16,12 @@ func TestAddTwoNumber(t *testing.T) {
 	}{
 		{nodeFromNum(123), nodeFromNum(456), nodeFromNum(579)},
 		{nodeFromNum(342), nodeFromNum(465), nodeFromNum(807)},
-		// {nodeFromNum(348), nodeFromNum(465), nodeFromNum(813)},
+		{nodeFromNum(348), nodeFromNum(465), nodeFromNum(813)},
+		{nodeFromNum(123), nodeFromNum(7), nodeFromNum(130)},
+		{nodeFromNum(243), nodeFromNum(564), nodeFromNum(807)},
+		{nodeFromNum(99), nodeFromNum(1), nodeFromNum(100)},
+		{nodeFromNum(18), nodeFromNum(0), nodeFromNum(18)},
+		{nodeFromNum(0), nodeFromNum(0), nodeFromNum(0)},
 	}
 
 	for _, test := range tests {
@@ -38,7 +43,7 @@ func nodeFromNum(n int) *ListNode {
 	thirdDigit := ((n - secondDigit - firstDigit) % 1000) / 100
 
 	n1 := &ListNode{
-		Val:  firstDigit,
+		Val:  thirdDigit,
 		Next: nil,
 	}
 
@@ -48,7 +53,7 @@ func nodeFromNum(n int) *ListNode {
 	}
 
 	n3 := &ListNode{
-		Val:  thirdDigit,
+		Val:  firstDigit,
 		Next: n2,
 	}
 
